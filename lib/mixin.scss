@@ -1,0 +1,32 @@
+// 清除浮动
+@mixin clearfix{
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+// 定宽布局
+@mixin main-width($bg:#fff) {
+    min-width: 480px;
+    padding: 0; //向后兼容
+    padding: 0 calc(50% - 600px);
+    background-color: $bg;
+}
+  
+// 选中状态
+@mixin selected($color-selected:#f16654) {
+    &{
+        position: relative;
+    }
+    &::after {
+        position: absolute;
+        bottom: 0; left:0;
+        display: inline-block;
+        content: '';
+        width: 100%;
+        height: 4px;
+        background-color: $color-selected;
+    }
+}
